@@ -107,3 +107,6 @@ vuetifyをtypes配列に追加する
 ```
 -> $ npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
 ```
+
+- .huskyrc.jsの修正  
+  - 整形してからコミットするように修正
