@@ -128,3 +128,71 @@ vuetifyをtypes配列に追加する
 ```
 
 appsにvueアプリを移植
+
+### Firabaseの設定
+- Hostingのデプロイ作業(dev)
+```
+-> % firebase init
+
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/kawanohenkenji/work/study/bola-chat
+
+? Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your 
+choices. Hosting: Configure and deploy Firebase Hosting sites
+
+=== Project Setup
+
+First, let's associate this project directory with a Firebase project.
+You can create multiple project aliases by running firebase use --add, 
+but for now we'll just set up a default project.
+
+? Please select an option: Use an existing project
+? Select a default Firebase project for this directory: bola-chat-dev (bola-chat-dev)
+i  Using project bola-chat-dev (bola-chat-dev)
+
+=== Hosting Setup
+
+Your public directory is the folder (relative to your project directory) that
+will contain Hosting assets to be uploaded with firebase deploy. If you
+have a build process for your assets, use your build's output directory.
+
+? What do you want to use as your public directory? dist
+? Configure as a single-page app (rewrite all urls to /index.html)? Yes
+✔  Wrote dist/index.html
+
+i  Writing configuration info to firebase.json...
+i  Writing project information to .firebaserc...
+
+✔  Firebase initialization complete!
+```
+
+.firabaserc  
+firabase.json  
+が作成される
+
+```
+-> % firebase deploy
+
+=== Deploying to 'bola-chat-dev'...
+
+i  deploying hosting
+i  hosting[bola-chat-dev]: beginning deploy...
+i  hosting[bola-chat-dev]: found 1 files in dist
+✔  hosting[bola-chat-dev]: file upload complete
+i  hosting[bola-chat-dev]: finalizing version...
+✔  hosting[bola-chat-dev]: version finalized
+i  hosting[bola-chat-dev]: releasing new version...
+✔  hosting[bola-chat-dev]: release complete
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/bola-chat-dev/overview
+Hosting URL: https://bola-chat-dev.web.app
+```

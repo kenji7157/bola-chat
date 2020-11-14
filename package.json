@@ -14,7 +14,10 @@
     "apps:serve:dev": "npm --prefix 'packages/apps' run serve:dev",
     "apps:serve:nightly": "npm --prefix 'packages/apps' run serve:nightly",
     "apps:serve:stage": "npm --prefix 'packages/apps' run serve:stage",
-    "apps:serve:prod": "npm --prefix 'packages/apps' run serve:prod"
+    "apps:serve:prod": "npm --prefix 'packages/apps' run serve:prod",
+    "apps:deploy:dev": "firebase deploy --project dev",
+    "apps:deploy:nightly": "firebase deploy --project nightly",
+    "apps:deploy:stage": "firebase deploy --project stage"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.7.0",
