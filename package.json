@@ -1,24 +1,40 @@
 {
-  "name": "study-vue",
+  "name": "bola-chat",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "test:unit": "npm run test:unit:cmd",
+    "build:dev": "npm run pre-build && vue-cli-service build --mode dev",
+    "build:nightly": "npm run pre-build && vue-cli-service build --mode nightly",
+    "build:prod": "npm run pre-build && vue-cli-service build --mode prod",
+    "build:stage": "npm run pre-build && vue-cli-service build --mode stage",
+    "pre-build": "rm -rf dist",
+    "serve:dev": "vue-cli-service serve --mode dev",
+    "serve:nightly": "vue-cli-service serve --mode nightly",
+    "serve:prod": "vue-cli-service serve --mode prod",
+    "serve:stage": "vue-cli-service serve --mode stage",
+    "test": "tsc --noEmit && npm run test:unit",
+    "test:unit:cmd": "node --max_old_space_size=2048 ./node_modules/.bin/vue-cli-service test:unit --silent --logHeapUsage"
   },
   "dependencies": {
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2",
     "vue-router": "^3.2.0",
+    "vuetify": "^2.2.11",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "^4.5.8",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
     "typescript": "~3.9.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-cli-plugin-vuetify": "~2.0.7",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
   }
 }
