@@ -1,16 +1,11 @@
 <template>
-  <div>
-    <h3>Bola chat</h3>
-    <div>
-      <div v-for="(comment, index) in commentList" :key="index">
-        <p>{{ comment }}</p>
-      </div>
-    </div>
-    <div>
-      <textarea></textarea>
-    </div>
-    <button>送信</button>
-  </div>
+  <v-container>
+    <v-card v-for="(comment, index) in commentList" :key="index">
+      <v-card-text>{{ comment }}</v-card-text>
+    </v-card>
+    <v-textarea outlined></v-textarea>
+    <v-btn>送信</v-btn>
+  </v-container>
 </template>
 
 <script lang="ts">

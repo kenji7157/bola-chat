@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark> </v-app-bar>
+    <v-app-bar app color="primary" dark>
+      <v-toolbar-title>Bola chat👋</v-toolbar-title>
+    </v-app-bar>
     <v-main>
       <router-view></router-view>
     </v-main>
