@@ -1,5 +1,6 @@
 // masterへのコミットも禁止
 const preventCommitToMaster = `branch=\`git symbolic-ref HEAD\`
+npm run lint
 if [ "$branch" = "refs/heads/master" ]; then
     echo "\\033[31mDirect commit to master is not allowed.\\033[0m"
     exit 1
