@@ -2,7 +2,7 @@
   <div>
     <h3>Bola chat</h3>
     <div>
-      <div v-for="(comment,index) in commentList" :key="index">
+      <div v-for="(comment, index) in commentList" :key="index">
         <p>{{ comment }}</p>
       </div>
     </div>
@@ -23,11 +23,7 @@ export default class Home extends Vue {
   created(): void {
     console.log("created");
     // テストデータ
-    this.commentList = [
-      'コメント１',
-      'コメント２',
-      'コメント３',
-    ];
+    this.commentList = ["コメント１", "コメント２", "コメント３"];
   }
 }
 </script>

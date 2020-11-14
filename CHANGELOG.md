@@ -96,3 +96,14 @@ vuetifyをtypes配列に追加する
 
 - .huskyrc.jsの作成
   - masterブランチのコミット/プッシュを禁止
+
+### ESlint/Prettierの追加
+- ESLint関連のモジュール
+```
+-> $ npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-vue
+```
+
+- Prettier関連のモジュール
+```
+-> $ npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
+```
