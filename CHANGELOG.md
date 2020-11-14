@@ -110,3 +110,21 @@ vuetifyをtypes配列に追加する
 
 - .huskyrc.jsの修正  
   - 整形してからコミットするように修正
+
+### lernaの導入
+- lernaのインストール
+```
+-> $ npm install --save-dev lerna
+```
+
+- packagesフォルダの生成
+```
+-> $ npx lerna init
+```
+
+- appsサブフォルダの作成
+```
+-> $ npx lerna create apps
+```
+
+appsにvueアプリを移植

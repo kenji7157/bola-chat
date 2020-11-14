@@ -42,7 +42,7 @@ module.exports = {
       }
     },
     {
-      files: ['src/**/*.{ts,vue}'],
+      files: ['packages/**/*.{ts,vue}'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser'
