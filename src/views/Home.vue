@@ -4,7 +4,9 @@
       <v-card-text>{{ comment }}</v-card-text>
     </v-card>
     <v-textarea outlined></v-textarea>
-    <v-btn>送信</v-btn>
+    <div class="comment-btn">
+      <v-btn color="primary">comment</v-btn>
+    </div>
   </v-container>
 </template>
 
@@ -22,3 +24,13 @@ export default class Home extends Vue {
   }
 }
 </script>
+<style scoped>
+.comment-btn {
+  text-align: center;
+}
+
+.v-btn {
+  min-width: 200px !important;
+}
+</style>
+>
