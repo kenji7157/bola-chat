@@ -87,3 +87,12 @@ vuetifyをtypes配列に追加する
       "vuetify"
     ],
 ```
+
+
+### huskyの追加
+```
+-> $ npm install --save-dev husky
+```
+
+- .huskyrc.jsの作成
+  - masterブランチのコミット/プッシュを禁止
