@@ -193,3 +193,15 @@ apps配下で以下を実行
 
 - apps/src/firehase/firebase.tsの作成  
 firabaseの設定は環境変数ファイルから参照するため、合わせて環境変数ファイルも修正
+
+- vuexfireのインストール
+firebaseのリモートデータベースとローカルの状況を容易に連携させるためのツール
+```
+npm install vuexfire
+```
+
+- vuex-smart-moduleのインストール
+classを使った自然な書き方でVuex storeの型定義を実装できる
+```
+npm install vuex-smart-module
+```

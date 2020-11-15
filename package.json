@@ -31,5 +31,8 @@
     "lerna": "^3.22.1",
     "prettier": "^2.1.2",
     "typescript": "~3.9.3"
+  },
+  "dependencies": {
+    "vuex-smart-module": "^0.4.6"
   }
 }

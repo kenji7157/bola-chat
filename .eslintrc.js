@@ -25,6 +25,12 @@ module.exports = {
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': [
+      'warn',
+      {
+        allowArgumentsExplicitlyTypedAsAny: true,
+      },
+    ],
     complexity: ['warn', 10],
     'no-dupe-class-members': 'off',
     'no-prototype-builtins': 'warn',
@@ -42,7 +48,7 @@ module.exports = {
       },
     },
     {
-      files: ['packages/**/*.{ts,vue}'],
+      files: ['packages/apps/**/*.{ts,vue}'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
