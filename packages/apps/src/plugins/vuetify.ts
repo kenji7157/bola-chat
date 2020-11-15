@@ -1,5 +1,5 @@
-import Vue from "vue";
-import { Ripple, Intersect } from "vuetify/lib/directives";
+import Vue from 'vue';
+import { Ripple, Intersect } from 'vuetify/lib/directives';
 import Vuetify, {
   VAlert,
   VApp,
@@ -65,8 +65,8 @@ import Vuetify, {
   VToolbar,
   VToolbarTitle,
   VTooltip,
-} from "vuetify/lib";
-import ja from "vuetify/src/locale/ja";
+} from 'vuetify/lib';
+import ja from 'vuetify/src/locale/ja';
 
 Vue.use(Vuetify, {
   components: {
@@ -142,15 +142,15 @@ Vue.use(Vuetify, {
 });
 
 const lightThemeSettings = {
-  primary: "#1F76DD",
-  secondary: "#EDC32F",
-  accent: "#04E3EC",
-  neutral: "#113364",
-  neutral_light: "#F3F7FB",
-  error: "#FF5252",
-  info: "#2196F3",
-  success: "#4CAF50",
-  warning: "#FB8C00",
+  primary: '#1F76DD',
+  secondary: '#EDC32F',
+  accent: '#04E3EC',
+  neutral: '#113364',
+  neutral_light: '#F3F7FB',
+  error: '#FF5252',
+  info: '#2196F3',
+  success: '#4CAF50',
+  warning: '#FB8C00',
 };
 
 export type VFormObj = Vue & { validate(): boolean };
@@ -158,7 +158,7 @@ export type VFormObj = Vue & { validate(): boolean };
 export default new Vuetify({
   lang: {
     locales: { ja },
-    current: "ja",
+    current: 'ja',
   },
   theme: {
     dark: false,
@@ -167,6 +167,6 @@ export default new Vuetify({
     },
   },
   icons: {
-    iconfont: "mdi",
+    iconfont: 'mdi',
   },
 });

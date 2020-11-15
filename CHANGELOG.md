@@ -111,6 +111,12 @@ vuetifyをtypes配列に追加する
 - .huskyrc.jsの修正  
   - 整形してからコミットするように修正
 
+- .editorconfigファイルの追加
+  - 異なるエディタ/IDE間のコーディングスタイルを定義
+
+- .eslintignoreファイルの追加
+  - eslint対象外の指定
+
 ### lernaの導入
 - lernaのインストール
 ```
