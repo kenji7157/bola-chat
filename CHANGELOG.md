@@ -175,24 +175,15 @@ i  Writing project information to .firebaserc...
 
 .firabaserc  
 firabase.json  
-が作成される
+が作成されるので、モノレポ用に修正
+https://github.com/kenji7157/bola-chat/commit/b97589c902b910106c41adc4c3603a0fd4cddb72
 
+### firebaseモジュールの導入
+- インストール
+apps配下で以下を実行
 ```
--> % firebase deploy
-
-=== Deploying to 'bola-chat-dev'...
-
-i  deploying hosting
-i  hosting[bola-chat-dev]: beginning deploy...
-i  hosting[bola-chat-dev]: found 1 files in dist
-✔  hosting[bola-chat-dev]: file upload complete
-i  hosting[bola-chat-dev]: finalizing version...
-✔  hosting[bola-chat-dev]: version finalized
-i  hosting[bola-chat-dev]: releasing new version...
-✔  hosting[bola-chat-dev]: release complete
-
-✔  Deploy complete!
-
-Project Console: https://console.firebase.google.com/project/bola-chat-dev/overview
-Hosting URL: https://bola-chat-dev.web.app
+-> % npm install firebase --save
 ```
+
+- apps/src/firehase/firebase.tsの作成  
+firabaseの設定は環境変数ファイルから参照するため、合わせて環境変数ファイルも修正
