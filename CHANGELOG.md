@@ -192,6 +192,9 @@ apps配下で以下を実行
 -> % npm install firebase --save
 ```
 
+エラー対応がリリースされていないため”7.24.0"を利用
+https://github.com/firebase/firebase-js-sdk/pull/4080/files
+
 - apps/src/firehase/firebase.tsの作成  
 firabaseの設定は環境変数ファイルから参照するため、合わせて環境変数ファイルも修正
 
@@ -206,3 +209,11 @@ classを使った自然な書き方でVuex storeの型定義を実装できる
 ```
 npm install vuex-smart-module
 ```
+
+### eslintの修正
+以下の設定を.eslintrc.jsに反映
+- 返戻値の型定義の設定は任意にしたい  
+@typescript-eslint/explicit-module-boundary-types': 'off'
+
+- 型定義に{}を指定できるようにしたい  
+@typescript-eslint/ban-types': 'off'  

@@ -5,7 +5,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
-
     'prettier',
     'prettier/@typescript-eslint',
   ],
@@ -25,12 +24,8 @@ module.exports = {
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-namespace': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': [
-      'warn',
-      {
-        allowArgumentsExplicitlyTypedAsAny: true,
-      },
-    ],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/ban-types': 'off',
     complexity: ['warn', 10],
     'no-dupe-class-members': 'off',
     'no-prototype-builtins': 'warn',
