@@ -1,13 +1,11 @@
 module.exports = {
-  "productionSourceMap": false,
-  "pages": {
-    "index": "src/main.ts"
+  productionSourceMap: false,
+  pages: {
+    index: 'src/main.ts',
   },
-  "outputDir": "dist",
-  "devServer": {
-    "port": 8089
+  outputDir: 'dist',
+  devServer: {
+    port: 8088,
   },
-  "transpileDependencies": [
-    "vuetify"
-  ]
-}
+  transpileDependencies: ['vuetify'],
+};

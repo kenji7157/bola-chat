@@ -12,13 +12,25 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { CommentCollectionModule } from "@/store/CommentCollectionModule";
+
+const Super = Vue.extend({
+  computed: {
+    ...CommentCollectionModule.mapGetters({
+      getCommentCollection: "getData",
+    }),
+  },
+});
 
 @Component
-export default class Home extends Vue {
+export default class Home extends Super {
   commentList: string[] = [];
 
   created(): void {
-    console.log("created");
+    console.log(
+      "-- created getCommentCollection --",
+      this.getCommentCollection
+    );
     // テストデータ
     this.commentList = ["コメント１", "コメント２", "コメント３"];
   }

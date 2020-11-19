@@ -1,11 +1,12 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { Store } from 'vuex';
+import { Module, createStore as cs } from 'vuex-smart-module';
+import { CommentCollectionModule } from '@/store/CommentCollectionModule';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+export function createStore(): Store<any> {
+  const rootModule = new Module({
+    modules: {
+      CommentCollectionModule,
+    },
+  });
+  return cs(rootModule);
+}

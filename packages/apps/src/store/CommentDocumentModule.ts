@@ -20,9 +20,6 @@ class CommentDocumentMutations extends FirestoreDocumentMutations<
   CommentDocumentState
 > {}
 
-// NOTE: 家賃保証会社・IPアドレスのupdate時に削除対象とする
-export const deleteStr = 'delete';
-
 export class CommentDocumentActions extends FirestoreDocumentActions<
   TComment,
   CommentDocumentState,
@@ -30,7 +27,7 @@ export class CommentDocumentActions extends FirestoreDocumentActions<
   CommentDocumentMutations
 > {}
 
-export function domainDocumentActionType(
+export function commentDocumentActionType(
   type: keyof CommentDocumentActions
 ): string {
   return `CommentDocumentModule/${type}`;
