@@ -24,15 +24,8 @@ const Super = Vue.extend({
 
 @Component
 export default class Home extends Super {
-  commentList: string[] = [];
-
-  created(): void {
-    console.log(
-      "-- created getCommentCollection --",
-      this.getCommentCollection
-    );
-    // テストデータ
-    this.commentList = ["コメント１", "コメント２", "コメント３"];
+  get commentList() {
+    return this.getCommentCollection.map((x) => x.text);
   }
 }
 </script>
