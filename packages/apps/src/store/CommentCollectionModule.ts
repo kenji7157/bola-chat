@@ -6,12 +6,12 @@ import {
   FirestoreCollectionMutations,
   FirestoreCollectionActions,
 } from '@/store/FirestoreCollectionBase';
-import { TComment } from './../../../types/TComment';
+import { Comment } from 'bola-chat-types/Comment';
 
-class CommentCollectionState extends FirestoreCollectionState<TComment> {}
+class CommentCollectionState extends FirestoreCollectionState<Comment> {}
 
 export class CommentCollectionGetters extends FirestoreCollectionGetters<
-  TComment,
+  Comment,
   CommentCollectionState
 > {
   store!: Store<any>;
@@ -21,16 +21,22 @@ export class CommentCollectionGetters extends FirestoreCollectionGetters<
 }
 
 class CommentCollectionMutations extends FirestoreCollectionMutations<
-  TComment,
+  Comment,
   CommentCollectionState
 > {}
 
 export class CommentCollectionActions extends FirestoreCollectionActions<
-  TComment,
+  Comment,
   CommentCollectionState,
   CommentCollectionGetters,
   CommentCollectionMutations
-> {}
+> {
+  async add(payload: Comment) {
+    if (this.state.ref) {
+      await this.state.ref.add(payload);
+    }
+  }
+}
 
 export const CommentCollectionModule = new Module({
   state: CommentCollectionState,

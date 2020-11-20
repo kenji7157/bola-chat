@@ -10,9 +10,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-type firestoreCollectionRefLike =
-  | firebase.firestore.Query
-  | firebase.firestore.CollectionReference;
+type firestoreCollectionRefLike = firebase.firestore.CollectionReference;
 
 export class FirestoreCollectionState<T extends {}> {
   data: T[] = [];

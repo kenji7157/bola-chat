@@ -6,22 +6,22 @@ import {
   FirestoreDocumentMutations,
   FirestoreDocumentState,
 } from '@/store/FirestoreDocumentBase';
-import { TComment } from './../../../types/TComment';
+import { Comment } from 'bola-chat-types/Comment';
 
-class CommentDocumentState extends FirestoreDocumentState<TComment> {}
+class CommentDocumentState extends FirestoreDocumentState<Comment> {}
 
 export class CommentDocumentGetters extends FirestoreDocumentGetters<
-  TComment,
+  Comment,
   CommentDocumentState
 > {}
 
 class CommentDocumentMutations extends FirestoreDocumentMutations<
-  TComment,
+  Comment,
   CommentDocumentState
 > {}
 
 export class CommentDocumentActions extends FirestoreDocumentActions<
-  TComment,
+  Comment,
   CommentDocumentState,
   CommentDocumentGetters,
   CommentDocumentMutations

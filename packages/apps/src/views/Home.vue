@@ -3,10 +3,12 @@
     <v-card v-for="(comment, index) in commentList" :key="index">
       <v-card-text>{{ comment }}</v-card-text>
     </v-card>
-    <v-textarea outlined></v-textarea>
-    <div class="comment-btn">
-      <v-btn color="primary">comment</v-btn>
-    </div>
+    <v-row>
+      <v-footer elevation="5">
+        <v-textarea v-model="comment" outlined></v-textarea>
+        <v-btn color="primary" @click="update">comment</v-btn>
+      </v-footer>
+    </v-row>
   </v-container>
 </template>
 
@@ -20,12 +22,25 @@ const Super = Vue.extend({
       getCommentCollection: "getData",
     }),
   },
+  methods: {
+    ...CommentCollectionModule.mapActions({
+      addComment: "add",
+    }),
+  },
 });
 
 @Component
 export default class Home extends Super {
-  get commentList() {
+  comment: string = "";
+
+  get commentList(): string[] {
     return this.getCommentCollection.map((x) => x.text);
+  }
+
+  update() {
+    this.addComment({ text: this.comment }).then(() => {
+      this.comment = "";
+    });
   }
 }
 </script>
