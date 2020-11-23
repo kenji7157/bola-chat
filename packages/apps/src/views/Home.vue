@@ -4,9 +4,22 @@
       <v-card-text>{{ comment }}</v-card-text>
     </v-card>
     <v-row>
-      <v-footer elevation="5">
-        <v-textarea v-model="comment" outlined></v-textarea>
-        <v-btn color="primary" @click="update">comment</v-btn>
+      <v-footer app elevation="5">
+        <div class="footer-div">
+          <v-textarea
+            v-model="comment"
+            :auto-grow="true"
+            :rows="1"
+            maxlength="300"
+            counter
+            outlined
+          ></v-textarea>
+          <div class="text-center">
+            <v-btn class="comment-btn" color="primary" @click="update"
+              >comment</v-btn
+            >
+          </div>
+        </div>
       </v-footer>
     </v-row>
   </v-container>
@@ -45,12 +58,11 @@ export default class Home extends Super {
 }
 </script>
 <style scoped>
-.comment-btn {
-  text-align: center;
+.footer-div {
+  width: 100%;
+  height: 100%;
 }
-
-.v-btn {
-  min-width: 200px !important;
+.comment-btn {
+  width: 100%;
 }
 </style>
->
