@@ -7,13 +7,32 @@ import fetchInitData from '@/init';
 
 const Home = () => import(/* webpackChunkName: "Home"*/ '@/views/Home.vue');
 
-export const Routes: RouteConfig[] = [
+const SignIn = () =>
+  import(/* webpackChunkName: "sign-in"*/ '@/views/SignIn.vue');
+const SignUp = () =>
+  import(/* webpackChunkName: "sign-up"*/ '@/views/SignUp.vue');
+
+export const AppRoutes: RouteConfig[] = [
   {
     path: '/',
     name: 'Home',
     component: Home,
   },
 ];
+
+export const SignInRoute: RouteConfig = {
+  path: '/signIn',
+  name: 'signIn',
+  component: SignIn,
+};
+
+export const SignUpRoute: RouteConfig = {
+  path: '/signUp',
+  name: 'signUp',
+  component: SignUp,
+};
+
+export const Routes: RouteConfig[] = [...AppRoutes, SignInRoute, SignUpRoute];
 
 let redirected = false;
 export function createRouter(store: Store<any>): Router {

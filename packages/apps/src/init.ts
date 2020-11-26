@@ -2,9 +2,11 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import { Store } from 'vuex';
+import { SignInGetters } from '@/store/SignInModule';
 import { CommentCollectionGetters } from '@/store/CommentCollectionModule';
 
 type storeGetters = {
+  SignInModule: SignInGetters;
   CommentCollectionModule: CommentCollectionGetters;
 };
 

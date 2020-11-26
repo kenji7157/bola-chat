@@ -10,7 +10,10 @@
     <v-list nav dense>
       <v-list-item-group active-class="deep-purple--text text--accent-4">
         <v-list-item>
-          <v-list-item-title @click="signIn()">SIGN IN</v-list-item-title>
+          <v-list-item-title @click="moveSignIn()">SIGN IN</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title @click="callSignOut()">SIGN OUT</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>
@@ -19,9 +22,16 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { SignInModule } from "@/store/SignInModule";
+
+const Super = Vue.extend({
+  methods: {
+    ...SignInModule.mapActions(["signOut"]),
+  },
+});
 
 @Component
-export default class SideNavi extends Vue {
+export default class SideNavi extends Super {
   @Prop({ type: Boolean, required: true }) drawer!: boolean;
   childDrawer: boolean = false;
 
@@ -37,8 +47,14 @@ export default class SideNavi extends Vue {
     }
   }
 
-  signIn(): void {
-    // TODO signIn処理の実装
+  moveSignIn(): void {
+    this.$router.push("/signIn");
+  }
+
+  callSignOut(): void {
+    this.signOut().then(() => {
+      this.$router.push("/signIn");
+    });
   }
 }
 </script>
