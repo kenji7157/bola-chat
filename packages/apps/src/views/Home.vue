@@ -1,7 +1,12 @@
 <template>
   <v-container>
-    <v-card v-for="(comment, index) in commentList" :key="index">
+    <v-card
+      v-for="(comment, index) in commentList"
+      :key="index"
+      class="d-flex justify-space-between"
+    >
       <v-card-text>{{ comment }}</v-card-text>
+      <v-btn v-if="isSignIn" icon><v-icon>mdi-delete</v-icon></v-btn>
     </v-card>
     <v-row>
       <v-footer app elevation="5">
@@ -28,12 +33,14 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { CommentCollectionModule } from "@/store/CommentCollectionModule";
+import { SignInModule } from "@/store/SignInModule";
 
 const Super = Vue.extend({
   computed: {
     ...CommentCollectionModule.mapGetters({
       getCommentCollection: "getData",
     }),
+    ...SignInModule.mapGetters(["isSignIn"]),
   },
   methods: {
     ...CommentCollectionModule.mapActions({
