@@ -31,11 +31,16 @@ export class CommentCollectionActions extends FirestoreCollectionActions<
   CommentCollectionGetters,
   CommentCollectionMutations
 > {
-  async add(payload: Comment) {
+  async add(payload: Partial<Comment>) {
     if (this.state.ref) {
       const commentUID = this.state.ref.doc().id;
       payload.commentUID = commentUID;
       await this.state.ref.doc(commentUID).set(payload);
+    }
+  }
+  async delete(commentUID: string) {
+    if (this.state.ref) {
+      await this.state.ref.doc(commentUID).delete();
     }
   }
 }

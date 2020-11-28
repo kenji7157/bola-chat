@@ -5,8 +5,10 @@
       :key="index"
       class="d-flex justify-space-between"
     >
-      <v-card-text>{{ comment }}</v-card-text>
-      <v-btn v-if="isSignIn" icon><v-icon>mdi-delete</v-icon></v-btn>
+      <v-card-text>{{ comment.text }}</v-card-text>
+      <v-btn v-if="isSignIn" icon @click="deleteComment(comment.commentUID)"
+        ><v-icon>mdi-delete</v-icon></v-btn
+      >
     </v-card>
     <v-row>
       <v-footer app elevation="5">
@@ -38,13 +40,14 @@ import { SignInModule } from "@/store/SignInModule";
 const Super = Vue.extend({
   computed: {
     ...CommentCollectionModule.mapGetters({
-      getCommentCollection: "getData",
+      commentList: "getData",
     }),
     ...SignInModule.mapGetters(["isSignIn"]),
   },
   methods: {
     ...CommentCollectionModule.mapActions({
       addComment: "add",
+      deleteComment: "delete",
     }),
   },
 });
@@ -52,10 +55,6 @@ const Super = Vue.extend({
 @Component
 export default class Home extends Super {
   comment: string = "";
-
-  get commentList(): string[] {
-    return this.getCommentCollection.map((x) => x.text);
-  }
 
   update() {
     this.addComment({ text: this.comment }).then(() => {
