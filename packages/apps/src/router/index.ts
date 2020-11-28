@@ -66,6 +66,10 @@ export function createRouter(store: Store<any>): Router {
     } else {
       await store.dispatch(signInActionType('updateCurrentUser'));
       console.log('ログイン中');
+      // signIn画面に遷移するときはトップ画面にリダイレクトさせる
+      if (to.path === '/signIn') {
+        next({ path: '/' });
+      }
     }
     next();
     // beforeEach内で動的にroutingしたときはそのまま解決する
