@@ -62,11 +62,6 @@ export class SignInActions extends Actions<
     await firebase
       .auth()
       .signInWithEmailAndPassword(payload.email, payload.password);
-
-    // Auth0の連携
-    // console.log('signInWithRedirect');
-    // const provider = new firebase.auth.SAMLAuthProvider('saml.auth0');
-    // firebase.auth().signInWithRedirect(provider);
   }
 
   async signOut() {
@@ -76,6 +71,12 @@ export class SignInActions extends Actions<
       .catch((err) => {
         console.log('error: ', err);
       });
+  }
+
+  signInAuth() {
+    console.log('signInWithRedirect');
+    const provider = new firebase.auth.SAMLAuthProvider('saml.auth0');
+    firebase.auth().signInWithRedirect(provider);
   }
 }
 

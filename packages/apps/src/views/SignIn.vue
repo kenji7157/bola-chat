@@ -50,7 +50,7 @@ import { SignInModule } from "@/store/SignInModule";
 
 const Super = Vue.extend({
   methods: {
-    ...SignInModule.mapActions(["signIn"]),
+    ...SignInModule.mapActions(["signIn", "signInAuth"]),
   },
 });
 
@@ -77,6 +77,11 @@ export default class SignIn extends Super {
 
   moveSignUp(): void {
     this.$router.push("/signUp");
+  }
+
+  created() {
+    // auth0のログイン処理を呼び出す
+    this.signInAuth();
   }
 }
 </script>
