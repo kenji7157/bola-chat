@@ -48,7 +48,9 @@ export default class SideNavi extends Super {
   }
 
   moveSignIn(): void {
-    this.$router.push("/signIn");
+    this.$router.push("/signIn").catch((err) => {
+      // https://github.com/vuejs/vue-router/issues/2872
+    });
   }
 
   callSignOut(): void {
