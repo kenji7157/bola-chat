@@ -6,7 +6,11 @@
       class="d-flex justify-space-between"
     >
       <v-card-text>{{ comment.text }}</v-card-text>
-      <v-btn v-if="isSignIn" icon @click="deleteComment(comment.commentUID)"
+      <v-btn
+        v-if="isSignIn"
+        class="align-self-center"
+        icon
+        @click="deleteComment(comment.commentUID)"
         ><v-icon>mdi-delete</v-icon></v-btn
       >
     </v-card>
