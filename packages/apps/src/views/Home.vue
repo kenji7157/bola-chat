@@ -40,7 +40,7 @@ import { SignInModule } from "@/store/SignInModule";
 const Super = Vue.extend({
   computed: {
     ...CommentCollectionModule.mapGetters({
-      commentList: "getData",
+      commentList: "sortedList",
     }),
     ...SignInModule.mapGetters(["isSignIn"]),
   },

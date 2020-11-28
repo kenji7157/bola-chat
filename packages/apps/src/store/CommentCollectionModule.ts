@@ -1,5 +1,6 @@
 import { Module } from 'vuex-smart-module';
 import { Store } from 'vuex';
+import firebase from 'firebase/app';
 import {
   FirestoreCollectionState,
   FirestoreCollectionGetters,
@@ -14,9 +15,15 @@ export class CommentCollectionGetters extends FirestoreCollectionGetters<
   Comment,
   CommentCollectionState
 > {
-  store!: Store<any>;
-  $init(store: Store<any>): void {
-    this.store = store;
+  get sortedList() {
+    const slice = this.state.data.slice();
+    return slice.sort((a, b) => {
+      if (a.createdAt && b.createdAt) {
+        if (a.createdAt < b.createdAt) return 1;
+        if (a.createdAt > b.createdAt) return -1;
+      }
+      return 0;
+    });
   }
 }
 
@@ -35,6 +42,7 @@ export class CommentCollectionActions extends FirestoreCollectionActions<
     if (this.state.ref) {
       const commentUID = this.state.ref.doc().id;
       payload.commentUID = commentUID;
+      payload.createdAt = firebase.firestore.FieldValue.serverTimestamp();
       await this.state.ref.doc(commentUID).set(payload);
     }
   }
