@@ -38,6 +38,26 @@ https://bola-chat.us.auth0.com
 ---
 ここまでで、できることauth0で登録するとfirebase側のユーザも作成されている
 
+## ログアウト処理の実装
+
+- Auth0のモジュールをapps配下でインストール
+```
+-> % npm install @auth0/auth0-spa-js
+```
+
+- ログアウト処理を任意の場所に記述
+```typescript
+import createAuth0Client from '@auth0/auth0-spa-js';
+
+const auth0 = await createAuth0Client({
+  domain: '<AUTH0_DOMAIN>',
+  client_id: '<AUTH0_CLIENTID>',
+  returnTo: 'RETURN_URL',
+});
+auth0.logout();
+```
+※returnTOに指定するURLはAuth0の管理画面に登録する必要がある  
+[Application > Setting > Allowed Logout URLs]
 
 ## 参考記事
 https://qiita.com/hisashiyamaguchi/items/2d0bcae052077f6ae4a4

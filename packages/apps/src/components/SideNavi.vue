@@ -13,7 +13,7 @@
           <v-list-item-title @click="moveSignIn()">SIGN IN</v-list-item-title>
         </v-list-item>
         <v-list-item>
-          <v-list-item-title @click="callSignOut()">SIGN OUT</v-list-item-title>
+          <v-list-item-title @click="signOut()">SIGN OUT</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>
@@ -50,12 +50,6 @@ export default class SideNavi extends Super {
   moveSignIn(): void {
     this.$router.push("/signIn").catch((err) => {
       // https://github.com/vuejs/vue-router/issues/2872
-    });
-  }
-
-  callSignOut(): void {
-    this.signOut().then(() => {
-      this.$router.push("/signIn");
     });
   }
 }

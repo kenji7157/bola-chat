@@ -2,6 +2,7 @@ import { Getters, Mutations, Actions, Module } from 'vuex-smart-module';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import createAuth0Client from '@auth0/auth0-spa-js';
 
 export class SignInState {
   user: firebase.User | null = null;
@@ -71,6 +72,13 @@ export class SignInActions extends Actions<
       .catch((err) => {
         console.log('error: ', err);
       });
+    // TODO: auth0は別ファイルに切り出す
+    const auth0 = await createAuth0Client({
+      domain: 'bola-chat.us.auth0.com',
+      client_id: 'uQRDgLsXa5CrqJ5FHpQWQVblXO6umErj',
+      returnTo: `https://${process.env.VUE_APP_AUTH_DOMAIN}/signIn`,
+    });
+    auth0.logout();
   }
 
   signInAuth() {
