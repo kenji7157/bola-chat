@@ -33,7 +33,9 @@ export class CommentCollectionActions extends FirestoreCollectionActions<
 > {
   async add(payload: Comment) {
     if (this.state.ref) {
-      await this.state.ref.add(payload);
+      const commentUID = this.state.ref.doc().id;
+      payload.commentUID = commentUID;
+      await this.state.ref.doc(commentUID).set(payload);
     }
   }
 }
