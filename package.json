@@ -5,6 +5,7 @@
   "scripts": {
     "npm-ci": "npm ci && run-p npm-ci:*",
     "npm-ci:apps": "npm --prefix 'packages/apps' ci",
+    "npm-ci:types": "npm --prefix 'packages/types' ci",
     "lint": "eslint 'packages/**/*.{ts,vue}' --config .eslintrc.js --fix",
     "test": "run-s apps:test",
     "apps:test": "npm --prefix 'packages/apps' run test",
