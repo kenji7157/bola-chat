@@ -31,6 +31,13 @@ export class SignInActions extends Actions<
   SignInGetters,
   SignInMutations
 > {
+  updateCurrentUser() {
+    const user = firebase.auth().currentUser;
+    const isSignIn = !!user;
+    this.commit('setUser', user);
+    this.commit('setIsSignIn', isSignIn);
+  }
+
   async signUp(payload: { email: string; password: string }) {
     await firebase
       .auth()
