@@ -4,6 +4,7 @@ import { Store } from 'vuex';
 import Router from 'vue-router';
 import { RouteConfig } from 'vue-router';
 import fetchInitData from '@/init';
+import { signInActionType } from '@/store/SignInModule';
 
 const Home = () => import(/* webpackChunkName: "Home"*/ '@/views/Home.vue');
 
@@ -34,7 +35,7 @@ export const SignUpRoute: RouteConfig = {
 
 export const Routes: RouteConfig[] = [...AppRoutes, SignInRoute, SignUpRoute];
 
-let redirected = false;
+// const redirected = false;
 export function createRouter(store: Store<any>): Router {
   const router = new Router({
     mode: 'history',
@@ -59,17 +60,22 @@ export function createRouter(store: Store<any>): Router {
   router.beforeEach(async (to, from, next) => {
     await fetchInitData(store);
     if (!firebase.auth().currentUser) {
-      const result = await firebase.auth().getRedirectResult();
-      console.log('新規作成ユーザー:', result.additionalUserInfo?.isNewUser);
-    }
-    // beforeEach内で動的にroutingしたときはそのまま解決する
-    if (redirected) {
-      redirected = false;
-      next();
-      return;
+      console.log('未ログイン');
+      // const result = await firebase.auth().getRedirectResult();
+      // console.log('新規作成ユーザー:', result.additionalUserInfo?.isNewUser);
     } else {
-      next();
+      await store.dispatch(signInActionType('updateCurrentUser'));
+      console.log('ログイン中');
     }
+    next();
+    // beforeEach内で動的にroutingしたときはそのまま解決する
+    // if (redirected) {
+    //   redirected = false;
+    //   next();
+    //   return;
+    // } else {
+    //   next();
+    // }
   });
   return router;
 }
