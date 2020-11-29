@@ -61,3 +61,16 @@ auth0.logout();
 
 ## 参考記事
 https://qiita.com/hisashiyamaguchi/items/2d0bcae052077f6ae4a4
+
+---
+## カスタムページの作成
+
+### (準備)
+- [Connections]で `Database Connection` を作成しておく  
+とりあえす名称だけ設定して作成
+Name：bola-chat
+作成後は[Connections > Applications]からbola-chatを有効にしておく。（こえをしないとアクセスできないため）
+### [Universal Login]からカスタムページを有効にする
+htmlのソースはcustom.htmlを参照
+
+---
