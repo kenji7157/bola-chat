@@ -7,7 +7,7 @@ import {
   FirestoreCollectionMutations,
   FirestoreCollectionActions,
 } from '@/store/FirestoreCollectionBase';
-import { Comment } from 'bola-chat-types/Comment';
+import { Comment } from 'bola-chat-types';
 
 class CommentCollectionState extends FirestoreCollectionState<Comment> {}
 

@@ -6,7 +6,7 @@ import {
   FirestoreDocumentMutations,
   FirestoreDocumentState,
 } from '@/store/FirestoreDocumentBase';
-import { Comment } from 'bola-chat-types/Comment';
+import { Comment } from 'bola-chat-types';
 
 class CommentDocumentState extends FirestoreDocumentState<Comment> {}
 
