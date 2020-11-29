@@ -5,6 +5,7 @@ import Router from 'vue-router';
 import { RouteConfig } from 'vue-router';
 import fetchInitData from '@/init';
 import { signInActionType } from '@/store/SignInModule';
+import { updateUserMetadata } from '@/utilities/firebaseFunctions';
 
 const Home = () => import(/* webpackChunkName: "Home"*/ '@/views/Home.vue');
 
@@ -61,11 +62,22 @@ export function createRouter(store: Store<any>): Router {
     await fetchInitData(store);
     if (!firebase.auth().currentUser) {
       console.log('未ログイン');
-      // const result = await firebase.auth().getRedirectResult();
-      // console.log('新規作成ユーザー:', result.additionalUserInfo?.isNewUser);
     } else {
       await store.dispatch(signInActionType('updateCurrentUser'));
-      console.log('ログイン中');
+      console.log('ログイン中', firebase.auth().currentUser);
+      if (
+        firebase.auth().currentUser &&
+        !firebase.auth().currentUser?.displayName
+      ) {
+        console.log('-- updateUserMetadataを実行します --');
+        updateUserMetadata()
+          .then(() => {
+            console.info('updateUserMetadata');
+          })
+          .catch((e) => {
+            console.error('error: updateUserMetadata', e);
+          });
+      }
       // signIn画面に遷移するときはトップ画面にリダイレクトさせる
       if (to.path === '/signIn') {
         next({ path: '/' });

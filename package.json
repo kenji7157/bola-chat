@@ -19,7 +19,8 @@
     "apps:serve:prod": "npm --prefix 'packages/apps' run serve:prod",
     "apps:deploy:dev": "firebase deploy --project dev",
     "apps:deploy:nightly": "firebase deploy --project nightly",
-    "apps:deploy:stage": "firebase deploy --project stage"
+    "apps:deploy:stage": "firebase deploy --project stage",
+    "functions:commit-hash": "npm --prefix 'packages/functions' run commit-hash"
   },
   "husky": {
     "hooks": {

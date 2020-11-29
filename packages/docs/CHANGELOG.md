@@ -217,3 +217,5 @@ npm install vuex-smart-module
 
 - 型定義に{}を指定できるようにしたい  
 @typescript-eslint/ban-types': 'off'  
+
+### Firestore Functions の導入
