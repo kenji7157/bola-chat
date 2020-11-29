@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rimraf lib && webpack --config ./config/webpack.config.ts",
     "build:dev": "npm run build",
-    "deploy": "npm run set && firebase deploy --only functions:updateUserMetadata",
+    "deploy": "firebase deploy --only functions",
     "set": "npm run set:dev",
     "set:dev": "firebase functions:config:set --project default func_env=\"$(cat ./src/environment/dev.json)\"",
     "set:nightly": "firebase functions:config:set --project nightly func_env=\"$(cat ./src/environment/nightly.json)\"",
