@@ -24,6 +24,7 @@ async function createAccount(userUID: string, account: Account) {
 async function setUserData(user: admin.auth.UserRecord, profile: Profile) {
   if (!profile.email) return;
 
+  // firebaseのメタデータを更新
   await admin.auth().updateUser(user.uid, {
     displayName: profile.nickname,
   });
@@ -51,8 +52,6 @@ export async function updateUserMetadata(
   const method = request.method;
   logger.debug({ headers: request.headers, method });
 
-  console.log('-- token --', token);
-
   // トークンからbearerに変換
   const bearer = getBearer(token);
   if (!bearer) {
@@ -60,21 +59,18 @@ export async function updateUserMetadata(
     response.status(401).send();
     return;
   }
-  console.log('-- bearer --', bearer);
 
   try {
     const idToken = await admin.auth().verifyIdToken(bearer);
+    // atuh0側のユーザ情報を取得
     const profile = convertProfile(
       idToken.firebase.sign_in_attributes as SamlProfile
     );
     logger.info({ idToken: idToken, profile: profile });
-    console.log('-- idToken --', idToken);
-    console.log('-- profile --', profile);
-
+    // firebaseのauthentificationからユーザ情報を取得
     const user = await admin.auth().getUser(idToken.uid);
     logger.info({ user: user });
-    console.log('-- user --', user);
-    // アカウントデータの作成
+    // ユーザメタデータの更新/アカウントデータの作成
     await setUserData(user, profile);
     response.status(200).send({ result: 'success' });
   } catch (e) {
