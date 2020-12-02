@@ -219,3 +219,13 @@ npm install vuex-smart-module
 @typescript-eslint/ban-types': 'off'  
 
 ### Firestore Functions の導入
+メモなし
+
+### testsパッケージの作成
+$ npx lerna create apps
+
+testsパッケージでfirestoreのセキュリティルールを実行したい
+
+(準備)Hostingにデプロイする際のrulesを開発リポジトリで管理する
+- パッケージ直下にfirestore.rulesを作成
+- firebase.jsonデプロイ対象にrulesを含めるよう修正
