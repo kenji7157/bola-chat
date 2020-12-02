@@ -1,0 +1,18 @@
+## Compiled JavaScript files
+**/*.js
+**/*.js.map
+
+# Typescript v1 declaration files
+typings/
+
+# Node modules
+node_modules/
+
+# Firebase settings
+*-firebase-adminsdk-*.json
+.runtimeconfig.json
+
+# git infomation files
+.gitinfo
+
+firebase-debug.log

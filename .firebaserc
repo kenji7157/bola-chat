@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "dev": "bola-chat-dev",
+    "nightly": "bola-chat-nightly",
+    "stage": "bola-chat-stage",
+    "prod": "bola-chat"
+  }
+}
