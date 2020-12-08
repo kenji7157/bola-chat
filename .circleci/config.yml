@@ -1,7 +1,16 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
-workflows:
-  node-tests:
-    jobs:
-      - node/test
+jobs:
+  build:
+    # 使用するDockerイメージ
+    docker:
+      - image: circleci/node:8.12.0
+    working_directory: ~/bola-chat
+    # 処理内容
+    steps:
+      - checkout
+      - run:
+          name: Setting npm
+          command: npm run npm-ci
+      - run:
+          name: Run test
+          command: npm run test

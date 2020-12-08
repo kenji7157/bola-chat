@@ -265,3 +265,41 @@ npm run test
 ```
 "pre-push": "npm run test"
 ```
+
+### CircleCIの導入
+CI(Continuous Integration) 継続的インテグレーション
+CD(Continuous Delivery) 継続的デリバリー
+
+参考記事：https://www.isoroot.jp/blog/1919/　　
+
+- githubアカウントでCircleCIにアクセス
+kenji7157
+
+- ci/cdを開始したいプロジェクト(bola-chat)をsetupする
+  - 使用する言語はnode.jsを扱う
+  - start buildを実行
+    - 失敗する(設定ファイルの登録をしていないため)
+  - config.ymlをプロジェクトに追加
+
+```
+version: 2.1
+jobs:
+  build:
+    # 使用するDockerイメージ
+    docker:
+      - image: circleci/node:8.12.0
+    working_directory: ~/bola-chat
+    # 処理内容
+    steps:
+      - checkout
+      - run:
+          name: Setting npm
+          command: npm run npm-ci
+      - run:
+          name: Run test
+          command: npm run test
+
+```
+
+参考記事:https://qiita.com/kurodenwa/items/d4a05a0091ca2ab69911
+
