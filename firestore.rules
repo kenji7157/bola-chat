@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // signInしているかどうかの判定 -> requestがauthを持っていればsignInしているとみなす
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    match /account/{accountUID} {
+      allow write: if isSignedIn();
+      allow read: if isSignedIn();
+    }
+
+    match /comment/{commentUID} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+      allow delete: if isSignedIn();
+    }
+  }
+}
