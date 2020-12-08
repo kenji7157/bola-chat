@@ -260,3 +260,8 @@ test.ts/test.spec.tsファイルを用意
 ```
 npm run test
 ```
+
+- push時にテストが実行されるように修正
+```
+"pre-push": "npm run test"
+```
