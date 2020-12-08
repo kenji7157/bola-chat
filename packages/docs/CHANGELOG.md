@@ -229,3 +229,34 @@ testsパッケージでfirestoreのセキュリティルールを実行したい
 (準備)Hostingにデプロイする際のrulesを開発リポジトリで管理する
 - パッケージ直下にfirestore.rulesを作成
 - firebase.jsonデプロイ対象にrulesを含めるよう修正
+
+###　単体テスト実行環境の構築
+参考記事：
+https://typescript-jp.gitbook.io/deep-dive/intro-1/jest　　
+
+- jestモジュールのインストール
+```
+npm i jest @types/jest ts-jest -D
+```
+
+- jest設定ファイル(jest.config.js)の生成
+```js
+module.exports = {
+  roots: ['<rootDir>/src'],
+  testMatch: [
+    '**/__tests__/**/*.+(ts|tsx|js)',
+    '**/?(*.)+(spec|test).+(ts|tsx|js)',
+  ],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+  },
+};
+```
+
+- 動作確認用のテストファイルを生成
+test.ts/test.spec.tsファイルを用意
+
+- 動作確認
+```
+npm run test
+```
