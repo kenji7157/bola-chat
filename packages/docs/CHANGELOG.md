@@ -304,3 +304,5 @@ jobs:
 
 参考記事:https://qiita.com/kurodenwa/items/d4a05a0091ca2ab69911
 
+- github側で該当レポジトリのブランチルールで以下を有効にしておく  
+Require status checks to pass before merging
