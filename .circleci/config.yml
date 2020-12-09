@@ -18,10 +18,18 @@ jobs:
     # 使用するDockerイメージ
     docker:
       - image: circleci/node:12.20.0
-    working_directory: ~/bola-chat
     # 処理内容
     steps:
       - checkout
       - run:
           name: Run test
           command: npm run test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
