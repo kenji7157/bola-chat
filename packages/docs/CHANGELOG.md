@@ -280,6 +280,7 @@ kenji7157
   - start buildを実行
     - 失敗する(設定ファイルの登録をしていないため)
   - config.ymlをプロジェクトに追加
+    - nodeバージョンはv12.20.0に合わせる
 
 ```
 version: 2.1
@@ -287,7 +288,7 @@ jobs:
   build:
     # 使用するDockerイメージ
     docker:
-      - image: circleci/node:8.12.0
+      - image: circleci/node:12.20.0
     working_directory: ~/bola-chat
     # 処理内容
     steps:
