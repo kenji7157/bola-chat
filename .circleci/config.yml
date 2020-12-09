@@ -14,6 +14,9 @@ jobs:
       - run:
           name: Setting npm
           command: npm run npm-ci
+      - run:
+          name: build
+          command: npm run apps:build:dev
   test:
     # 使用するDockerイメージ
     docker:
@@ -21,6 +24,12 @@ jobs:
     # 処理内容
     steps:
       - checkout
+      - run:
+          name: install npm
+          command: npm install
+      - run:
+          name: Setting npm
+          command: npm run npm-ci
       - run:
           name: Run test
           command: npm run test
