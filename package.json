@@ -8,6 +8,7 @@
     "npm-ci:types": "npm --prefix 'packages/types' ci",
     "lint": "eslint 'packages/**/*.{ts,vue}' --config .eslintrc.js --fix",
     "test": "run-s apps:test",
+    "e2e":  "npm --prefix 'packages/apps' run test:e2e",
     "apps:test": "npm --prefix 'packages/apps' run test",
     "apps:build:dev": "npm --prefix 'packages/apps' run build:dev",
     "apps:build:nightly": "npm --prefix 'packages/apps' run build:nightly",
