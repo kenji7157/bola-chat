@@ -5,7 +5,7 @@
       :key="index"
       class="d-flex justify-space-between"
     >
-      <v-card-text>{{ comment.text }}</v-card-text>
+      <v-card-text id="comment-text">{{ comment.text }}</v-card-text>
       <v-btn
         v-if="isSignIn"
         class="align-self-center"
@@ -18,6 +18,7 @@
       <v-footer app elevation="5">
         <div class="footer-div">
           <v-textarea
+            id="comment-area"
             v-model="comment"
             :auto-grow="true"
             :rows="1"
