@@ -308,4 +308,4 @@ jobs:
 Require status checks to pass before merging
 
 ### e2eテストの導入
-動作確認
+動作確認_
