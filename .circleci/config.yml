@@ -40,9 +40,6 @@ jobs:
       - image: circleci/node:12.20.0-browsers
     # 処理内容
     steps:
-      - run:
-          name: Setting chromedriver
-          command: chromedriver
       - checkout
       - run:
           name: install npm
