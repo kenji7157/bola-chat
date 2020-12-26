@@ -49,8 +49,8 @@ jobs:
           command: npm run npm-ci
       - run:
           name: Setting chromedriver
-            command: chromedriver
-            background: true
+          command: chromedriver
+          background: true
       - run:
           name: Run e2e
           command: npm run e2e
