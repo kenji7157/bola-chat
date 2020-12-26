@@ -306,3 +306,6 @@ jobs:
 
 - github側で該当レポジトリのブランチルールで以下を有効にしておく  
 Require status checks to pass before merging
+
+### e2eテストの導入
+動作確認
